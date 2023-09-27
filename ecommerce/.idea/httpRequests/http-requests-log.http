@@ -1,0 +1,24 @@
+GET http://localhost:8099/api/employees
+
+<> 2023-09-28T012450.200.json
+
+###
+
+DELETE http://localhost:8099/api/employees/1
+
+<> 2023-09-28T012346.200.json
+
+###
+
+GET http://localhost:8099/api/employees/1
+
+<> 2023-09-28T012241.200.json
+
+###
+
+POST http://localhost:8099/api/users/create
+
+<> 2023-09-27T014555.403.json
+
+###
+

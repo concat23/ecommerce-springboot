@@ -1,0 +1,6 @@
+.m2
+*/target
+*.xml
+*.iml
+.vscode/
+.DS_Store
