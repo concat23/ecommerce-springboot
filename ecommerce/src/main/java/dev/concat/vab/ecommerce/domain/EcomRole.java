@@ -9,20 +9,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
-@Getter @Setter
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "dom_ecom_employees")
-public class EcomEmployee {
+@Table(name = "dom_ecom_roles")
+public class EcomRole {
     @Id
     @GeneratedValue
-    private Integer id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String createdAt;
-    private Date deletedAt;
+    private Long id;
+    private String code;
+    private String name;
 }

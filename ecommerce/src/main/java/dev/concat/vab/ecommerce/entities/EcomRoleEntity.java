@@ -3,7 +3,6 @@ package dev.concat.vab.ecommerce.entities;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Access;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +19,7 @@ import lombok.Setter;
 @Data
 @Getter @Setter
 @Entity
-@Table(name = "ecom_roles")
+@Table(name = "enti_ecom_roles")
 public class EcomRoleEntity extends BasicEntity{
         
         @Id

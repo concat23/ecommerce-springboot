@@ -1,8 +1,8 @@
 package dev.concat.vab.ecommerce.services.impls;
 
+import dev.concat.vab.ecommerce.services.IEcomEmployeeService;
 import dev.concat.vab.ecommerce.domain.EcomEmployee;
 import dev.concat.vab.ecommerce.repositories.IJpaEcomEmployeeRepository;
-import dev.concat.vab.ecommerce.services.IEcomEmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

@@ -1,0 +1,48 @@
+##======================= VERSION 2 =======================
+#version: '2'
+#
+#services:
+#  ecommerce_db_v2:
+#    container_name: mysqlcontainerforapp
+#    image: mysql:8.0.31
+#    restart: unless-stopped  # Changed "unless-stop" to "unless-stopped"
+#    command: --default-authentication-plugin=mysql_native_password
+#    volumes:  # Changed "volume" to "volumes"
+#      - $HOME/database:/var/lib/mysql
+#    ports:
+#      - 3302:3306
+#    expose:
+#      - 3306
+#    environment:
+#      MYSQL_DATABASE: ecommerce_db_v2
+#      MYSQL_USER: admin
+#      MYSQL_PASSWORD: letmein
+#      MYSQL_ROOT_PASSWORD: letmein
+#      SERVICE_TAGS: prod
+##      SERVICE_NAME: ecommerce_db_v2
+#    networks:
+#      - apinetwork
+#
+#  ecommerce_api_v2:
+#    container_name: apiapplicationcontainer
+#    build: ./ecommerce
+#    image: apiapplication:v1
+#    restart: unless-stopped  # Changed "unless-stop" to "unless-stopped"
+#    ports:
+#      - 7070:8080
+#    expose:
+#      - 8080
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://ecommerce_db_v2:3302/ecommerce_db_v2?allowPublicKeyRetrieval=true&useSSL=false
+#      SPRING_DATASOURCE_USERNAME: 'admin'
+#      SPRING_DATASOURCE_PASSWORD: 'letmein'
+#      SERVICE_TAGS: prod
+#      SERVICE_NAME: ecommerce_api_v2
+#    depends_on:
+#      - ecommerce_db_v2
+#    networks:
+#      - apinetwork
+#
+#networks:
+#  apinetwork:
+#    driver: bridge

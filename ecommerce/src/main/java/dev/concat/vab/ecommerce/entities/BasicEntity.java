@@ -1,7 +1,5 @@
 package dev.concat.vab.ecommerce.entities;
 
-import java.time.LocalDateTime;
-
 import dev.concat.vab.ecommerce.utilities.IDGenerator;
 import lombok.Data;
 import lombok.Getter;

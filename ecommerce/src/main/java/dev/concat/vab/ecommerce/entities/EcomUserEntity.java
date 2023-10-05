@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Access;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +22,7 @@ import java.util.Set;
 @Data
 @Getter @Setter
 @Entity
-@Table(name = "ecom_users",uniqueConstraints = { @UniqueConstraint(columnNames = {"username"}), @UniqueConstraint(columnNames = {"email"})})
+@Table(name = "enti_ecom_users",uniqueConstraints = { @UniqueConstraint(columnNames = {"username"}), @UniqueConstraint(columnNames = {"email"})})
 public class EcomUserEntity extends BasicEntity{
 
     @Id
@@ -81,8 +80,8 @@ public class EcomUserEntity extends BasicEntity{
 
     @Column
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "ecom_users_roles", joinColumns = @JoinColumn(name="ecom_user_id", referencedColumnName = "id",nullable=false, updatable=false),
-               inverseJoinColumns = @JoinColumn(name="ecom_role_id",referencedColumnName = "id",nullable=false, updatable=false))
+    @JoinTable(name = "enti_ecom_users_roles", joinColumns = @JoinColumn(name="enti_ecom_user_id", referencedColumnName = "id",nullable=false, updatable=false),
+               inverseJoinColumns = @JoinColumn(name="enti_ecom_role_id",referencedColumnName = "id",nullable=false, updatable=false))
     private Set<EcomRoleEntity> roles = new HashSet<>();
 
     public void addRole(EcomRoleEntity role) {
@@ -91,8 +90,8 @@ public class EcomUserEntity extends BasicEntity{
 
     // @Access(javax.persistence.AccessType.PROPERTY)
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "ecom_users_roles", joinColumns = @JoinColumn(name="ecom_user_id", referencedColumnName = "id",nullable=false, updatable=false),
-               inverseJoinColumns = @JoinColumn(name="ecom_role_id",referencedColumnName = "id",nullable=false, updatable=false))
+    @JoinTable(name = "enti_ecom_users_roles", joinColumns = @JoinColumn(name="enti_ecom_user_id", referencedColumnName = "id",nullable=false, updatable=false),
+               inverseJoinColumns = @JoinColumn(name="enti_ecom_role_id",referencedColumnName = "id",nullable=false, updatable=false))
     public Set<EcomRoleEntity> getRoles(){
         return roles;
     }

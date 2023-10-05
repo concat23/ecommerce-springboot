@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import dev.concat.vab.ecommerce.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import dev.concat.vab.ecommerce.entities.EcomUserEntity;
-import dev.concat.vab.ecommerce.exceptions.ResourceNotFoundException;
-import dev.concat.vab.ecommerce.repositories.IEcomUserRepository;
+import dev.concat.vab.ecommerce.repositories.IEcomUserEntityRepository;
 import dev.concat.vab.ecommerce.services.IEcomUserService;
 
 @Service
 public class EcomUserServiceImpl implements IEcomUserService{
 
     @Autowired
-    private IEcomUserRepository iEcomUserRepository;
+    private IEcomUserEntityRepository iEcomUserEntityRepository;
 
     @Override
     public EcomUserEntity createEcomUser(EcomUserEntity user){
@@ -31,7 +31,7 @@ public class EcomUserServiceImpl implements IEcomUserService{
         if (user.getPassword() == null || user.getPassword().isEmpty()) {
             throw new IllegalArgumentException("Password is required");
         }
-        EcomUserEntity createdUser = this.iEcomUserRepository.save(user);
+        EcomUserEntity createdUser = this.iEcomUserEntityRepository.save(user);
 
         return createdUser;
     }
@@ -56,22 +56,22 @@ public class EcomUserServiceImpl implements IEcomUserService{
 
     @Override
     public Optional<EcomUserEntity> findByUsername(String username) {
-        return this.iEcomUserRepository.findByUsername(username);
+        return this.iEcomUserEntityRepository.findByUsername(username);
     }
 
     @Override
     public boolean isUsernameTaken(String username){
-        return iEcomUserRepository.existsByUsername(username);
+        return iEcomUserEntityRepository.existsByUsername(username);
     }
 
     @Override
     public Optional<EcomUserEntity> findByEmail(String email){
-        return this.iEcomUserRepository.findByEmail(email);
+        return this.iEcomUserEntityRepository.findByEmail(email);
     }
 
     @Override
     public boolean isEmailTaken(String email){
-        return iEcomUserRepository.existsByEmail(email);
+        return iEcomUserEntityRepository.existsByEmail(email);
     }
 
 }
